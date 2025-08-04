@@ -1,0 +1,22 @@
+local HttpService = game:GetService("HttpService")
+local jobId = game.JobId
+
+local Scripts = {
+    ["126509999114328"] = "https://raw.githubusercontent.com/ScriptsForDays/Loader/refs/heads/main/Aiyoku",
+   -- ["jobid2_here"] = "https://raw.githubusercontent.com/YourUsername/YourRepo/main/script2.lua",
+    -- Add more JobId -> Script URL pairs here
+}
+
+local url = Scripts[jobId]
+
+if url then
+    local success, err = pcall(function()
+        local scriptSource = game:HttpGet(url, true)
+        loadstring(scriptSource)()
+    end)
+    if not success then
+        warn("Failed to load script for JobId:", jobId, err)
+    end
+else
+    warn("No script assigned for this JobId:", jobId)
+end
