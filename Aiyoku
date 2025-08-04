@@ -1,7 +1,7 @@
 local HttpService = game:GetService("HttpService")
 local placeId = game.PlaceId
 
--- Mapping multiple PlaceIds to a single script
+-- Scripts and PlaceIDs
 local Scripts = {
     ["99Nights"] = {
         PlaceIds = {
