@@ -12,12 +12,11 @@ local Scripts = {
     },
 
     --[[ 
-    ["AnotherGame"] = {
+    ["Unbox a Brainrot"] = {
         PlaceIds = {
-            [111111111111111] = true,
-            [222222222222222] = true,
+            [80234405571477] = true,
         },
-        URL = "https://raw.githubusercontent.com/YourUsername/YourRepo/main/YourScript.lua"
+        URL = "https://gist.githubusercontent.com/ScriptsForDays/d6fd6aa128c45f9e49d3959df1f365de/raw/759f61bb707c28443d98b3f29e27d623d65e3b58/Unbox%2520A%2520Brainrot"
     },
     ]]
 }
