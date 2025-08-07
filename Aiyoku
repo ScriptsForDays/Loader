@@ -8,7 +8,7 @@ local Scripts = {
             ["126509999114328"] = true,
             ["79546208627805"] = true,
         },
-        URL = "https://gist.githubusercontent.com/ScriptsForDays/205761789f0c96bdeb5c68b759dcb8fe/raw/c8d4bf7431542b6a6abf79dd8045aaa67fd1adac/99%2520NIGHTS%2520BETA",
+        URL = "https://gist.githubusercontent.com/ScriptsForDays/b93569057dc3b7351a6fcf7eacc9d8b0/raw/56a398cd49405ea4662a96c7d0746d221a616cf0/99%2520NIGHTS%2520BETA%2520V1",
         Enabled = true
     },
 
