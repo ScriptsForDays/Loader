@@ -14,7 +14,7 @@ local Scripts = {
     --[[ 
     ["Unbox a Brainrot"] = {
         PlaceIds = {
-            [80234405571477] = true,
+            [8023440557147] = true,
         },
         URL = "https://gist.githubusercontent.com/ScriptsForDays/d6fd6aa128c45f9e49d3959df1f365de/raw/759f61bb707c28443d98b3f29e27d623d65e3b58/Unbox%2520A%2520Brainrot"
     },
