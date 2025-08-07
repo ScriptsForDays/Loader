@@ -1,47 +1,67 @@
 local HttpService = game:GetService("HttpService")
-local placeId = game.PlaceId
+local placeId = tostring(game.PlaceId)
 
--- Scripts and PlaceIDs
+-- Enhanced Scripts Configuration
 local Scripts = {
     ["99Nights"] = {
         PlaceIds = {
             ["126509999114328"] = true,
             ["79546208627805"] = true,
         },
-        URL = "https://gist.githubusercontent.com/ScriptsForDays/205761789f0c96bdeb5c68b759dcb8fe/raw/c8d4bf7431542b6a6abf79dd8045aaa67fd1adac/99%2520NIGHTS%2520BETA"
+        URL = "https://gist.githubusercontent.com/ScriptsForDays/205761789f0c96bdeb5c68b759dcb8fe/raw/c8d4bf7431542b6a6abf79dd8045aaa67fd1adac/99%2520NIGHTS%2520BETA",
+        Enabled = true
     },
 
-    --[[ 
     ["Unbox a Brainrot"] = {
         PlaceIds = {
             ["80234405571477"] = true,
         },
-        URL = "https://gist.githubusercontent.com/ScriptsForDays/d6fd6aa128c45f9e49d3959df1f365de/raw/759f61bb707c28443d98b3f29e27d623d65e3b58/Unbox%2520A%2520Brainrot"
+        URL = "https://gist.githubusercontent.com/ScriptsForDays/d6fd6aa128c45f9e49d3959df1f365de/raw/759f61bb707c28443d98b3f29e27d623d65e3b58/Unbox%2520A%2520Brainrot",
+        Enabled = true
     },
-    ]]
+    
+    -- Add more scripts here as needed
 }
 
--- Function to find the matching script URL
-local function getScriptURL(pid)
-    for _, scriptData in pairs(Scripts) do
-        if scriptData.PlaceIds[pid] then
-            return scriptData.URL
+-- Enhanced function to find matching scripts for a place ID
+local function getScriptsForPlaceId(pid)
+    local matchingScripts = {}
+    
+    for scriptName, scriptData in pairs(Scripts) do
+        if scriptData.Enabled and scriptData.PlaceIds[pid] then
+            table.insert(matchingScripts, {
+                Name = scriptName,
+                URL = scriptData.URL,
+                Data = scriptData
+            })
         end
     end
-    return nil
+    
+    return matchingScripts
 end
 
-local url = getScriptURL(placeId)
-
-if url then
-    local success, err = pcall(function()
+-- Function to safely load a script
+local function loadScriptSafely(scriptName, url)
+    pcall(function()
         local scriptSource = game:HttpGet(url, true)
-        loadstring(scriptSource)()
+        
+        if scriptSource and scriptSource ~= "" then
+            local loadedScript = loadstring(scriptSource)
+            if loadedScript then
+                loadedScript()
+            end
+        end
     end)
-    if not success then
-        warn("Failed to load script for PlaceId:", placeId, err)
-    end
-else
-    warn("No script assigned for this PlaceId:", placeId)
 end
 
+-- Main execution function
+local function executeScripts()
+    local matchingScripts = getScriptsForPlaceId(placeId)
+    
+    for _, script in ipairs(matchingScripts) do
+        loadScriptSafely(script.Name, script.URL)
+    end
+end
+
+-- Execute scripts
+pcall(executeScripts)
