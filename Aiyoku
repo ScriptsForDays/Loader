@@ -5,8 +5,8 @@ local placeId = game.PlaceId
 local Scripts = {
     ["99Nights"] = {
         PlaceIds = {
-            [126509999114328] = true,
-            [79546208627805] = true,
+            ["126509999114328"] = true,
+            ["79546208627805"] = true,
         },
         URL = "https://gist.githubusercontent.com/ScriptsForDays/205761789f0c96bdeb5c68b759dcb8fe/raw/c8d4bf7431542b6a6abf79dd8045aaa67fd1adac/99%2520NIGHTS%2520BETA"
     },
@@ -14,7 +14,7 @@ local Scripts = {
     --[[ 
     ["Unbox a Brainrot"] = {
         PlaceIds = {
-            [80234405571477] = true,
+            ["80234405571477"] = true,
         },
         URL = "https://gist.githubusercontent.com/ScriptsForDays/d6fd6aa128c45f9e49d3959df1f365de/raw/759f61bb707c28443d98b3f29e27d623d65e3b58/Unbox%2520A%2520Brainrot"
     },
